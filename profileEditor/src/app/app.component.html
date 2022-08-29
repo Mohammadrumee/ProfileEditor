@@ -1,0 +1,44 @@
+<div id="content">
+  
+  <h1>{{ title }}</h1>
+  <h2>User Information</h2>
+
+    <form #profileForm="ngForm" (ngSubmit)="saveChanges()">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="name">Name: 
+                <input *ngIf="displayEdit"
+                  type="text" class="form-control" id="name" [(ngModel)]="formUser.name"
+                  name="name" required placeholder="Enter your name..." />
+                <span *ngIf="!displayEdit">{{ formUser.name }}</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="name">Age:
+                <input *ngIf="displayEdit"
+                  type="number" class="form-control" id="age" [(ngModel)]="formUser.age" 
+                  name="age" required placeholder="Enter your age..." />
+                <span *ngIf="!displayEdit">{{ formUser.age }}</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="name">Favorite Color:
+                <input *ngIf="displayEdit" type="text" class="form-control" id="age" [(ngModel)]="formUser.favoriteColor"
+                  name="favoriteColor" required placeholder="Enter your favorite color..." />
+                <span *ngIf="!displayEdit">{{ formUser.favoriteColor }}</span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button *ngIf="displayEdit" type="submit">Submit</button>
+    </form>
+
+  <button (click)="toggleEdit()">Toggle Edit</button>
+</div>
